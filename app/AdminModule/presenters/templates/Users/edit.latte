@@ -1,0 +1,116 @@
+{block content}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Editace uživatele
+                </div>
+                <div class="panel-body">
+                    <form n:name=editForm n:class=form-horizontal>
+                        {input id}
+                        <div class="tab-content">
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <div class="col-sm-12 input-group">
+                            <span class="input-group-addon">
+                                      <a href="javascript:void(0)" title="Login" data-toggle="popover"
+                                          data-trigger="focus"
+                                          data-content="Přihlašovací jméno uživatele">
+                                          <i class="fa fa-question"></i>
+                                      </a>
+                                    </span>
+                                        {input username}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-12 input-group margin-bottom-sm">
+                                    <span class="input-group-addon">
+                                      <a href="javascript:void(0)" title="Email" data-toggle="popover"
+                                          data-trigger="focus" data-content="Uživatelův email">
+                                          <i class="fa fa-question"></i>
+                                      </a>
+                                    </span>
+                                        {input email}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <div class="col-sm-12 input-group">
+                                    <span class="input-group-addon">
+                                      <a href="javascript:void(0)" title="Heslo" data-toggle="popover"
+                                          data-trigger="focus"
+                                          data-content="Přihlašovací heslo">
+                                          <i class="fa fa-question"></i>
+                                      </a>
+                                    </span>
+                                        {input password}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-12 input-group">
+                                    <span class="input-group-addon">
+                                      <a href="javascript:void(0)" title="Heslo pro kontrolu" data-toggle="popover"
+                                          data-trigger="focus"
+                                          data-content="Heslo pro kontrolu">
+                                          <i class="fa fa-question"></i>
+                                      </a>
+                                    </span>
+                                        {input password2}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <div class="col-sm-12 input-group">
+                                    <span class="input-group-addon">
+                                      <a href="javascript:void(0)" title="Jméno" data-toggle="popover"
+                                          data-trigger="focus"
+                                          data-content="Křestní jméno uživatele">
+                                          <i class="fa fa-question"></i>
+                                      </a>
+                                    </span>
+                                        {input name}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="col-sm-12 input-group">
+                                        <span class="input-group-addon">
+                                          <a href="javascript:void(0)" title="Příjmení" data-toggle="popover"
+                                              data-trigger="focus"
+                                              data-content="Příjmení uživatele">
+                                              <i class="fa fa-question"></i>
+                                          </a>
+                                        </span>
+                                        {input lastname}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="col-sm-12 input-group">
+                                    <span class="input-group-addon">
+                                      <a href="javascript:void(0)" title="Role" data-toggle="popover"
+                                          data-trigger="focus"
+                                          data-content="Uživatelova role">
+                                          <i class="fa fa-question"></i>
+                                      </a>
+                                    </span>
+                                    {input role}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {input process}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}
+ 
+{block title}Editace uživatele |&nbsp;{/block}

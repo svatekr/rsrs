@@ -1,0 +1,86 @@
+{block content}
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					{_'Přidání položky slideru'}
+				</div>
+				<div class="panel-body">
+					{form addForm}
+					<div class="tab-content">
+						<div class="form-group">
+							<div class="col-lg-12">
+								<div class="col-lg-12 input-group">
+									<span class="input-group-addon">
+									  <a href="javascript:void(0)" title="Název obrázku" data-toggle="popover"
+										  data-trigger="focus"
+										  data-content="Obrázek nahrajete pomocí aplikace KCFinder">
+										  <i class="fa fa-image"></i>
+									  </a>
+									</span>
+									{input imgName}
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-12">
+								<div class="col-lg-12 input-group margin-bottom-sm">
+									<span class="input-group-addon">
+									  <a href="javascript:void(0)" title="Titulek" data-toggle="popover"
+										  data-trigger="focus" data-content="Titulek se objeví ve slideru">
+										  <i class="fa fa-tags"></i>
+									  </a>
+									</span>
+									{input imgTitle}
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-12">
+								<div class="col-lg-12 input-group">
+									<span class="input-group-addon">
+									  <a href="javascript:void(0)" title="Description" data-toggle="popover"
+										  data-trigger="focus"
+										  data-content="Popisek obrázku">
+										  <i class="fa fa-lock"></i>
+									  </a>
+									</span>
+									{input imgDescription}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-12">
+							{input save}
+						</div>
+					</div>
+				</div>
+				{/form}
+			</div>
+		</div>
+	</div>
+	<script src="{$basePath}/ckeditor/ckeditor.js"></script>
+	<script>
+		var editor = CKEDITOR.replace('frm-addForm-imgDescription', {
+			height: '400px'
+		});
+	</script>
+	<script type="text/javascript">
+
+		function openKCFinder(field) {
+			window.KCFinder = {
+				callBack: function (url) {
+					field.value = url;
+					window.KCFinder = null;
+				}
+			};
+			window.open({$basePath} + "/kcfinder/browse.php?type=files&dir=images", 'kcfinder_textbox',
+					  'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+					  'resizable=1, scrollbars=0, width=800, height=600'
+			);
+		}
+	</script>
+{/block}
+
+{block title}{_'Přidání položky slideru'} |&nbsp;{/block}

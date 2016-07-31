@@ -1,0 +1,31 @@
+{block content}
+	{snippet articles}
+		<div class="contentArea">
+			<div class="divPanel notop article-content">
+				<div class="breadcrumbs"></div>
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+						<h2>Blog</h2>
+					</div>
+					<!--Edit Main Content Area here-->
+					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+						<div class="post-preview" n:foreach="$articles as $article">
+							<a n:href="Articles:view $article->id">
+								<h2 class="post-title">
+									{$article->name|noescape|striptags}
+								</h2>
+								<p class="post-subtitle">
+									{$article->text|striptags|noescape|truncate:500}
+								</p>
+							</a>
+						</div>
+						<hr>
+					</div>
+					<!--End Main Content-->
+				</div>
+				{control visualPaginator}
+				<div id="footerInnerSeparator"></div>
+			</div>
+		</div>
+	{/snippet}
+{/block}

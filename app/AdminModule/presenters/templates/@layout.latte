@@ -1,0 +1,103 @@
+{var ajax = $presenter->getParameter('ajax') == 'on'}
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta charset="utf-8">
+		<title>{block title}{/block}RS::RS</title>
+		<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+		{block head}{/block}
+		<link rel="stylesheet" href="//cdn.rawgit.com/simonwhitaker/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/twbs/bootstrap/v3.3.6/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/twbs/bootstrap/v3.3.6/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/dangrossman/bootstrap-daterangepicker/v1.3.17/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/hyspace/typeahead.js-bootstrap3.less/v0.2.3/typeahead.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css">
+		<link rel="stylesheet" href="//cdn.rawgit.com/o5/grido/ef677c3/client-side/css/grido.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+		<link href="{$basePath}/css/admin.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.0/metisMenu.min.css">
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.rawgit.com/moment/moment/2.9.0/moment.js"></script>
+		<script src="//cdn.rawgit.com/twbs/bootstrap/v3.3.6/dist/js/bootstrap.min.js"></script>
+		<script src="{$basePath}/js/bootstrap-checkbox.min.js" defer></script>
+		<script src="//cdn.rawgit.com/dangrossman/bootstrap-daterangepicker/v1.3.19/daterangepicker.js"></script>
+		<script src="//cdn.rawgit.com/nette/forms/v2.2.4/src/assets/netteForms.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+
+		<script n:if="$ajax"
+		src="//cdn.rawgit.com/browserstate/history.js/1.8.0/scripts/bundled/html4+html5/jquery.history.js"></script>
+		<script n:if="$ajax" src="//cdn.rawgit.com/twitter/typeahead.js/v0.10.5/dist/typeahead.bundle.min.js"></script>
+		<script n:if="$ajax" src="//cdn.rawgit.com/vojtech-dobes/nette.ajax.js/2.0.0/nette.ajax.js"></script>
+		<script n:if="$ajax" src="//cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.js"></script>
+		<script n:if="$ajax" src="{$basePath}/js/nette.nprogress.js"></script>
+
+		<script src="{$basePath}/js/grido.js"></script>
+		<script src="{$basePath}/js/grido.datepicker.js"></script>
+		<script n:if="$ajax" src="{$basePath}/js/grido.typeahead.js"></script>
+		<script n:if="$ajax" src="{$basePath}/js/grido.history.js"></script>
+		<script n:if="$ajax" src="{$basePath}/js/grido.nette.ajax.js"></script>
+
+		<script n:if="$ajax" src="{$basePath}/js/admin/main.ajax.js"></script>
+		<script n:if="!$ajax" src="{$basePath}/js/admin/main.js"></script>
+
+		<script src="{$basePath}/js/jquery.cookie.js"></script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.0/metisMenu.min.js"></script>
+		<script src="{$basePath}/js/admin/bootstrap.init.js"></script>
+		<script src="{$basePath}/js/lightbox.init.js"></script>
+	</head>
+
+	<body>
+		<div id="content">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" n:href="Pages:default">RS::RS</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a n:href="Users:edit $user->id"><i
+									class="fa fa-user fa-fw"></i> {$this->user->getIdentity()->name} {$this->user->getIdentity()->lastname}
+								({$this->user->getIdentity()->role})</a>
+						<li><a n:href=":Front:Sign:out"><span class="glyphicon glyphicon-log-out"></span> {_ messages.application.logout}</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-file-o"></i>  Obsah <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a n:href="Pages:default"><i class="fa fa-file-o"></i>  Stránky</a></li>
+								<li><a n:href="Articles:default"><i class="fa fa-quote-left"></i>  Články</a></li>
+								<li><a n:href="Footer:edit"><i class="fa fa-file-text-o"></i>  Patička</a></li>
+								<li><a n:href="Galleries:default"><i class="fa fa-camera"></i>  Galerie</a></li>
+								<li><a n:href="Comments:default"><i class="fa fa-comments-o"></i>  Komentáře</a></li>
+								<li><a n:href="Slider:default"><i class="fa fa-image"></i>  Slider</a></li>
+								<li><a n:href="News:default"><i class="fa fa-newspaper-o"></i>  Novinky</a></li>
+							</ul>
+						</li>
+						<li><a n:href="Search:default"><i class="fa fa-search"></i>  Vyhledávání</a></li>
+						<li><a n:href="Users:default"><i class="fa fa-users"></i>  Uživatelé</a></li>
+						<li><a n:href="Settings:edit"><i class="fa fa-cogs"></i>  Nastavení</a></li>
+						<li><span id="ajax-spinner" class="hide">&nbsp;</span></li>
+					</ul>
+				</div>
+			</nav>
+
+			{snippet flashes}
+				<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} fade in">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<p>{$flash->message}</p>
+				</div>
+			{/snippet}
+
+			{include #content}
+
+		</div>
+
+	</body>
+</html>

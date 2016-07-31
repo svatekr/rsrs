@@ -1,0 +1,354 @@
+{block content}
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{_ messages.settings.title}
+			</div>
+			<div class="panel-body">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a data-toggle="tab" aria-expanded="true" href="#application">Aplikace</a></li>
+					<li><a data-toggle="tab" href="#theme">Výběr šablony</a></li>
+					<li><a data-toggle="tab" href="#smtp">SMTP server</a></li>
+					<li><a data-toggle="tab" href="#owncsript">Vlastní javascript</a></li>
+				</ul>
+				<form n:name=editForm class="form-horizontal">
+					<div class="tab-content">
+						<div>&nbsp;</div>
+						<div id="application" class="tab-pane active">
+							<div class="form-group">
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.siteNameTitle}"
+												data-toggle="popover"
+												data-trigger="focus" data-content="{_ messages.settings.siteNameContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input siteName}
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.adminMailTitle}"
+												data-toggle="popover"
+												data-trigger="focus" data-content="{_ messages.settings.adminMailContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input adminMail}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.companyAddressTitle}"
+												data-toggle="popover"
+												data-trigger="focus" data-content="{_ messages.settings.companyAddressContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input companyAddress}
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.companyMailTitle}"
+												data-toggle="popover"
+												data-trigger="focus" data-content="{_ messages.settings.companyMailContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input companyMail}
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.companyPhoneTitle}"
+												data-toggle="popover"
+												data-trigger="focus" data-content="{_ messages.settings.companyPhoneContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input companyPhone}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.motto1Title}"
+												data-toggle="popover" data-trigger="focus"
+												data-content="{_ messages.settings.motto1Content}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input motto1}
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.motto2Title}"
+												data-toggle="popover" data-trigger="focus"
+												data-content="{_ messages.settings.motto2Content}"">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input motto2}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.thanksPageTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.thanksPageContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input thanksPage}
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="col-sm-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.rowInRssTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.rowInRssContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input rowInRss}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-3">
+									<input title="" type="checkbox" n:name=showAsBlog data-off-icon-cls="glyphicon-thumbs-down"
+											 data-on-icon-cls="glyphicon-thumbs-up" data-group-cls="btn-group-xs">
+									<label n:name=showAsBlog > {_ messages.settings.showAsBlog}</label>
+								</div>
+								<div class="col-sm-3">
+									<div class="col-sm-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.pagesPerPageTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.pagesPerPageContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input pagesPerPage}
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="col-sm-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.sliderIntervalTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.sliderIntervalContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input sliderInterval}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-4">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.logoTitle}" data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.logoContent}">
+												<i class="glyphicon glyphicon-picture"></i>
+											</a>
+										</span>
+										{input logo}
+									</div>
+									<div id="pictureContainer">
+										<a n:ifset="$logo" data-footer="{_ messages.settings.logo}" data-toggle="lightbox"
+											href="{$logo}"
+											title="{_ messages.settings.logoTitle}">
+											<img src="{$logo}" alt="{_ messages.settings.logo}">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="theme" class="tab-pane fade">
+							<div class="form-group">
+								<div class="col-sm-4">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.templateTitle}"
+											   data-toggle="popover"
+											   data-trigger="focus"
+											   data-content="{_ messages.settings.templateContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input theme}
+									</div>
+									<div>&nbsp;</div>
+									<div class="col-sm-12 input-group">
+										<a n:ifset="$thumbnail" href="{$thumbnail}" data-toggle="lightbox"
+										                        data-footer="{_ messages.settings.templatePreview}">
+											<img src="{$thumbnail}" alt="{_ messages.settings.templatePreview}"
+											     class="img-thumbnail img-responsive">
+										</a>
+									</div>
+								</div>
+								<div n:ifset="$about" class="col-sm-8">
+									<div class="col-sm-12 input-group">
+										{$about|noescape}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="smtp" class="tab-pane fade">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.smtpServerTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.smtpServerContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input smtpHost}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.smtpUsernameTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.smtpUsernameContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input smtpUsername}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.smtpPasswordTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.smtpPasswordContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input smtpPassword}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.smtpSecureTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.smtpSecureContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input smtpSecure}
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-4">
+									<input title="" type="checkbox" n:name=useMail data-off-icon-cls="glyphicon-thumbs-down"
+											 data-on-icon-cls="glyphicon-thumbs-up" data-group-cls="btn-group-xs">
+									<label n:name=useMail > {_ messages.settings.useMail}</label>
+								</div>
+							</div>
+						</div>
+						<div id="owncsript" class="tab-pane fade">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div class="col-sm-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="{_ messages.settings.footerScriptTitle}"
+												data-toggle="popover"
+												data-trigger="focus"
+												data-content="{_ messages.settings.footerScriptContent}">
+												<i class="fa fa-question"></i>
+											</a>
+										</span>
+										{input ownScript}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								{input process}
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		function openKCFinder(field) {
+			window.KCFinder = {
+				callBack: function (url) {
+					field.value = url;
+					window.KCFinder = null;
+				}
+			};
+			window.open({$basePath} + "/kcfinder/browse.php?type=images&dir=images", 'kcfinder_textbox',
+				'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+				'resizable=1, scrollbars=0, width=800, height=600'
+				);
+		}
+
+		jQuery(function ($) {
+			$('#myTab').find('a').click(function (e) {
+				e.preventDefault();
+				$(this).tab('show');
+			});
+
+			$("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+				var id = $(e.target).attr("href").substr(1);
+				$.cookie('activeTab', id);
+			});
+
+			// on load of the page: switch to the currently selected tab
+			var hash = $.cookie('activeTab');
+			if (location.hash != '')
+				$('#myTab').find('a[href="' + location.hash + '"]').tab('show');
+			else if (hash != null)
+				$('#myTab').find('a[href="#' + hash + '"]').tab('show');
+		});
+	</script>
+	{/block}
+
+	{block title}{_ messages.settings.title} |&nbsp;{/block}

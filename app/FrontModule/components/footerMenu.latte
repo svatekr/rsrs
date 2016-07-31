@@ -1,0 +1,7 @@
+{block #footerMenu}
+	<div class="footerMenu">
+		{foreach $menuItems as $link}
+			<a href="{$link->url}">{$link->name}</a>
+		{/foreach}
+	</div>
+{/block}

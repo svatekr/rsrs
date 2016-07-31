@@ -1,0 +1,6 @@
+<div class="blog row">
+	<h3>{_ messages.blog.blog}</h3>
+	<p n:foreach="$blogPages as $blogPage">
+		<a href="{plink Pages:view $blogPage->url}">{$blogPage->name}</a>
+	</p>
+</div>

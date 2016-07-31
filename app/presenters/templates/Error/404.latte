@@ -1,0 +1,30 @@
+{block content}
+<div id="dont-panic">
+	<h1>404</h1>
+	<p>Internet je velký. Fakticky velký. To byste nevěřili, jak je hrozivě obrovitánsky velký, že z toho
+		zůstává rozum stát. Myslíte si třeba, že drogerie ve vaší ulici je daleko, ale proti internetu je to úplný
+		houby.</p>
+	<p>Není potom divu, že člověk občas zabloudí a ocitne se na místě, na kterém není nic. To je zrovna tento případ.</p>
+	<h2>NEPROPADEJTE PANICE</h2>
+	<p>Pokud stisknete tlačítko nekonečné nepravděpodobnosti, máte při současné velikosti internetu šanci jedna ku dvěma na
+		dvě stě šedesát sedm tisíc sedm set devět, že se ocitnete na místě, které jste skutečně chtěli navštívit.</p>
+	<a href="/" style="display: table-cell;"><img id="red-button" src="/css/images/red-button.jpg" alt="red button" width="257" height="206"></a>
+</div>
+
+		<script>
+			$("#red-button").mousedown(function() {
+				$("#red-button").css("height", "186px");
+				$("a").css("padding-top", "20px");
+			});
+			$("#red-button").mouseout(function() {
+				$("#red-button").css("height", "206px");
+				$("a").css("padding-top", "0");
+			});
+		</script>
+{/block}
+
+{block title}
+  Stránka nenalezena
+{/block}
+
+

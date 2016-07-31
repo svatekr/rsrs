@@ -1,0 +1,26 @@
+{block content}
+	<div class="divPanel notop nobottom">
+		<div class="row-fluid">
+			<div class="span12">
+				<div id="contentInnerSeparator"></div>
+			</div>
+		</div>
+	</div>
+	<div class="contentArea">
+		<div class="divPanel notop article-content row">
+			<div class="breadcrumbs">
+			</div>
+			<div class="row-fluid">
+				<!--Edit Main Content Area here-->
+				<div class="span12" id="divMain">
+					<h1>{$article->name()|noescape|components}</h1>
+					{$article->text()|noescape|components}
+				</div>
+				<!--End Main Content-->
+			</div>
+			<div id="footerInnerSeparator"></div>
+		</div>
+	</div>
+	{control galleries}
+	{control comments}
+{/block}

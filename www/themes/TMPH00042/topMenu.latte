@@ -1,0 +1,16 @@
+<ul class="sf-menu" id="example">
+    {block #menu}
+    {foreach $menuItems as $link}
+        <li>
+            {if count($link->children)}
+                <a href="{plink Pages:view $link->url}">{$link->menu_title}</a>
+                <ul>
+                    {include #menu, menuItems => $link->children}
+                </ul>
+            {else}
+                <a href="{plink Pages:view $link->url}">{$link->menu_title}</a>
+            {/if}
+        </li>
+    {/foreach}
+    {/block}
+</ul>

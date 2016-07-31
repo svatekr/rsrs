@@ -1,0 +1,28 @@
+{block content}
+	<div class="divPanel notop nobottom">
+		<div class="row-fluid">
+			<div class="span12">
+				<div id="contentInnerSeparator"></div>
+			</div>
+		</div>
+	</div>
+	<div class="contentArea row">
+		<div class="divPanel notop page-content">
+			<div class="breadcrumbs">
+			</div>
+			<div class="row-fluid">
+				<!--Edit Main Content Area here-->
+				<div class="span12" id="divMain">
+					{$page->text()|noescape|components}
+					{if $user->isLoggedIn() && $page->secretText() > ''}
+						{$page->secretText()|noescape}
+					{/if}
+				</div>
+				<!--End Main Content-->
+			</div>
+			<div id="footerInnerSeparator"></div>
+		</div>
+	</div>
+	{control galleries}
+	{control comments}
+{/block}

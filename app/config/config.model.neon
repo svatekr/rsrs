@@ -1,0 +1,24 @@
+services:
+	- App\Model\UserManager
+	usersMapper: App\Model\UsersMapper
+	- App\Model\UsersRepository(@usersMapper)
+	pagesMapper: App\Model\PagesMapper
+	- App\Model\PagesRepository(@pagesMapper)
+	newsMapper: App\Model\NewsMapper
+	- App\Model\NewsRepository(@newsMapper)
+	settingsMapper: App\Model\SettingsMapper
+	- App\Model\SettingsRepository(@settingsMapper)
+	galleriesMapper: App\Model\GalleriesMapper
+	- App\Model\GalleriesRepository(@galleriesMapper)
+	picturesMapper: App\Model\PicturesMapper
+	- App\Model\PicturesRepository(@picturesMapper)
+	commentsMapper: App\Model\CommentsMapper
+	- App\Model\CommentsRepository(@commentsMapper)
+	footerMapper: App\Model\FooterMapper
+	- App\Model\FooterRepository(@footerMapper)
+	sliderMapper: App\Model\SliderMapper
+	- App\Model\SliderRepository(@sliderMapper)
+	searchMapper: App\Model\SearchMapper
+	- App\Model\SearchRepository(@searchMapper)
+	articlesMapper: App\Model\ArticlesMapper
+	- App\Model\ArticlesRepository(@articlesMapper)

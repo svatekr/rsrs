@@ -1,0 +1,27 @@
+<div class="divPanel notop comments row">
+	<h4>Komentáře ({count($comments)})</h4>
+
+	{snippet flashes}
+		<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} fade in">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<p>{$flash->message}</p>
+		</div>
+	{/snippet}
+	<div class="col-sm-12">
+		{snippet comments}
+			<ul n:inner-foreach="$comments as $comment">
+				<li>
+					<span class="author">{$comment->author}</span><br>
+					{$comment->text}<br>
+					<span class="glyphicon glyphicon-time"></span> {$comment->date|date:"Y-m-d H:i:s"}
+				</li>
+			</ul>
+		{/snippet}
+	</div>
+
+	<div class="col-sm-6">
+		{snippet commentForm}
+			{control addCommentForm}
+		{/snippet}
+	</div>
+</div>

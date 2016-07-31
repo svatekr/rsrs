@@ -1,0 +1,159 @@
+{var ajax = $presenter->getParameter('ajax') == 'on'}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{$title|truncate:55}</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="{$description|striptags|truncate:160}">
+		<meta name="keywords" content="{$keywords}">
+		<meta name="author" content="Rudolf Svátek, www.rudolfsvatek.cz">
+		<meta name="publisher" content="Rudolf Svátek, www.rudolfsvatek.cz">
+		<meta name="robots" content="noindex, nofollow">
+
+		<meta name="geo.region" content="CZ-MO" />
+		<meta name="geo.placename" content="Hav&iacute;řov" />
+		<meta name="geo.position" content="49.781153;18.442521" />
+		<meta name="ICBM" content="49.781153, 18.442521" />
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+		<link href="{$basePath}/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css">
+
+		<!-- Icons -->
+		<link href="{$basePath}/{$theme}/scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css"/>
+		<link href="{$basePath}/{$theme}/scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+		<!--[if lt IE 8]>
+		<link href="{$basePath}/{$theme}/scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen"
+				rel="stylesheet" type="text/css"/>
+		<link href="{$basePath}/{$theme}/scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen"
+				rel="stylesheet" type="text/css"/>
+		<![endif]-->
+		<link rel="stylesheet" href="{$basePath}/{$theme}/scripts/fontawesome/css/font-awesome.min.css">
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="{$basePath}/{$theme}/scripts/fontawesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
+
+		<link href="//fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
+		<link href="//fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+		<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+		<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+		<link href="//fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet" type="text/css">
+		<link href="//fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="{$basePath}/js/scripts/shCore.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushCss.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushPlain.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="{$basePath}/js/scripts/shBrushSql.js"></script>
+		<link type="text/css" rel="stylesheet" href="{$basePath}/js/styles/shCoreDefault.css"/>
+		<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+		<link href="{$basePath}/{$theme}/styles/custom.css" rel="stylesheet" type="text/css"/>
+
+		<link href="{$basePath}/js/styles/tomorrow.css" rel="stylesheet" type="text/css"/>
+
+		{block #link}{/block}
+	</head>
+	<body id="pageBody">
+
+		<div id="divBoxed" class="container">
+			<div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
+			<div class="divPanel notop nobottom">
+				<div class="row">
+					<div class="span12">
+						<div id="divLogo" class="pull-left">
+							<a n:href="Homepage:default" id="divSiteTitle">{$settings['motto1']}</a><br/>
+							<a n:href="Homepage:default" id="divTagLine">{$settings['motto2']}</a>
+						</div>
+						{control searchControl}
+						<ul class="nav navbar-nav navbar-right" n:if="$this->user->isLoggedIn()" style="position:absolute;right:32px; z-index: 20">
+							<li><a n:href=":Admin:Users:edit $user->id"><i
+										class="fa fa-user fa-fw"></i> {$this->user->getIdentity()->name} {$this->user->getIdentity()->lastname}
+									({$this->user->getIdentity()->role})</a>
+							<li><a n:href="Sign:out"><span class="glyphicon glyphicon-log-out"></span> {_ messages.application.logout}</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right" n:if="!$this->user->isLoggedIn()" style="position:absolute;right:32px; z-index: 20">
+							<li><a n:href="Sign:in"><span class="glyphicon glyphicon-log-in"></span> {_ messages.application.login}</a></li>
+						</ul>
+						<div id="divMenuRight" class="pull-right">
+							<div class="navbar">
+								<button type="button" class="btn btn-navbar-highlight btn-large btn-primary" data-toggle="collapse" data-target=".nav-collapse">
+									Menu <span class="icon-chevron-down icon-white"></span>
+								</button>
+								<div id="myNavbar" class="navbar">
+									{control topMenu}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{snippet flashes}
+					<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} fade in">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						<p>{$flash->message}</p>
+					</div>
+				{/snippet}
+			{ifset slider}{include slider}{/ifset}
+		</div>
+		<div class="contentArea">
+			<div class="divPanel notop page-content">
+				<div class="row-fluid">
+					<div class="span12" id="divMain">
+						{include content}
+					</div>
+				</div>
+				<div id="footerInnerSeparator"></div>
+			</div>
+		</div>
+		<div id="footerOuterSeparator"></div>
+		<div id="divFooter" class="footerArea">
+			<div class="divPanel">
+				<div class="row">
+					{$footer->text()|noescape|components}
+				</div>
+				<div class="col-sm-12">
+					{control footerMenu}
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br><br>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="//cdn.rawgit.com/moment/moment/2.9.0/moment.js"></script>
+	<script src="//cdn.rawgit.com/twbs/bootstrap/v3.3.6/dist/js/bootstrap.min.js"></script>
+	<script src="{$basePath}/js/bootstrap-checkbox.min.js" defer></script>
+	<script src="{$basePath}/js/bootstrap.init.js"></script>
+	<script src="//cdn.rawgit.com/dangrossman/bootstrap-daterangepicker/v1.3.19/daterangepicker.js"></script>
+	<script src="//cdn.rawgit.com/nette/forms/v2.2.4/src/assets/netteForms.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+
+	<script src="{$basePath}/js/jquery.smartmenus.js"></script>
+	<script src="{$basePath}/js/jquery.smartmenus.bootstrap.js"></script>
+	<script src="{$basePath}/js/bootstrap-hover-dropdown.js"></script>
+
+	<script n:if="$ajax"
+	src="//cdn.rawgit.com/browserstate/history.js/1.8.0/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<script n:if="$ajax" src="//cdn.rawgit.com/twitter/typeahead.js/v0.10.5/dist/typeahead.bundle.min.js"></script>
+	<script n:if="$ajax" src="//cdn.rawgit.com/vojtech-dobes/nette.ajax.js/2.0.0/nette.ajax.js"></script>
+	<script n:if="$ajax" src="//cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.js"></script>
+	<script n:if="$ajax" src="{$basePath}/js/nette.nprogress.js"></script>
+
+	<script n:if="$ajax" src="{$basePath}/js/main.ajax.js"></script>
+	<script n:if="!$ajax" src="{$basePath}/js/main.js"></script>
+
+	<script src="{$basePath}/js/jquery.cookie.js"></script>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.0/metisMenu.min.js"></script>
+	<script src="{$basePath}/js/lightbox.init.js"></script>
+
+	{$settings['ownScript']|noescape}
+</body>
+</html>

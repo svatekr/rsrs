@@ -1,0 +1,36 @@
+{block content}
+
+<div class="form-2 w600" n:if="$flashes">
+  {snippet flash}
+    <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} fade in">
+      <p>{$flash->message}</p>
+    </div>
+  {/snippet}
+</div>
+<section class="main">
+	<form n:name=signRememberForm class="form-2 w600">
+		<h1><span class="sign-up">Zapomenuté heslo</span></h1>
+        <div><p>Zapoměli jste heslo? To se stane. Nemůžeme vám jej zaslat, protože dbáme na bezpečnost a heslo neznáme.
+            Vyplňte níže jeden z údajů a my vám zašleme odkaz na vygenerování nového hesla.</p></div>
+        <div><p>Po odeslání formuláře vám přijde zpráva s pokyny na emailovou adresu, kteru jste zadali při registraci, nebo která vám byla přidělena.</p></div>
+		<p class="float">
+			<label n:name=username><i class="fa fa-user"></i>Váš Login</label>
+			<input type="text"  n:name=username placeholder="Login">
+		</p>
+		<p class="float">
+			<label n:name=email><i class="fa fa-envelope"></i>Váš Email</label>
+			<input type="text"  n:name=email placeholder="Email">
+		</p>
+		<p class="clearfix"> 
+			<input type="submit" n:name=send value="Resetovat heslo">
+		</p>
+	</form>​​
+</section>
+
+{/block}
+
+{block title}
+  Zapomenuté heslo 
+{/block}
+
+

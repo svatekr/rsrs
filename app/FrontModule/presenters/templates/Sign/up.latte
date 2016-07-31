@@ -1,0 +1,47 @@
+{block content}
+
+	<div class="form-2" n:if="$flashes">
+		{snippet flash}
+			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} fade in">
+				<p>{$flash->message}</p>
+			</div>
+		{/snippet}
+	</div>
+	<section class="main">
+		<form n:name=signUpForm class="form-2">
+			<h1><span class="sign-up">{_messages.sign.up}</span> {_messages.other.or} <a n:href="Sign:in"><span class="log-in">{_messages.sign.in}</span></a>
+			</h1>
+			<p class="float">
+				<label n:name=name>{_messages.sign.name}</label>
+				<input type="text" n:name=name placeholder="{_messages.sign.name}">
+			</p>
+			<p class="float">
+				<label n:name=lastname>{_messages.sign.lastname}</label>
+				<input type="text" n:name=lastname placeholder="{_messages.sign.lastname}">
+			</p>
+			<p class="float" style="width:100%;">
+				<label n:name=email><i class="fa fa-envelope"></i>{_messages.sign.email}</label>
+				<input type="text" n:name=email placeholder="{_messages.sign.email}" style="width:100%;">
+			</p>
+			<p class="float">
+				<label n:name=username><i class="fa fa-user"></i>{_messages.sign.username}</label>
+				<input type="text" n:name=username placeholder="{_messages.sign.username}">
+			</p>
+			<p class="float">
+				<label n:name=password><i class="fa fa-lock"></i>{_messages.sign.password}</label>
+				<input type="password" n:name=password placeholder="{_messages.sign.password}" class="showpassword">
+			</p>
+			<p class="clearfix">
+				<input type="submit" n:name=send value="{_messages.sign.btn_up}">
+			</p>
+		</form>
+		​​
+	</section>
+
+{/block}
+
+{block title}
+	Registrace
+{/block}
+
+

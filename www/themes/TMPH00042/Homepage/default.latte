@@ -1,0 +1,15 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+<div class="clear"></div>
+<div class="banner-wrap">
+	<div class="banner"><img src="{$basePath}/{$theme}/images/banner1.jpg" alt="banner"/></div>
+</div>
+<div class="page-wrap">
+	<div class="wrap">
+		{$page->text()|noescape|components}
+		{if $user->isLoggedIn() && $page->secrettext() > ''}
+			{$page->secrettext()|noescape|components}
+		{/if}
+	</div>
+</div>
+{/block}

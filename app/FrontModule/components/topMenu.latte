@@ -1,0 +1,16 @@
+<ul class="nav navbar-nav nav-pills ddmenu">
+{block #menu}
+		{foreach $menuItems as $link}
+			<li n:class="count($link->children) ? dropdown">
+				{if count($link->children)}
+					<a href="{plink Pages:view $link->id}" role="button" data-toggle="dropdown" class="dropdown-toggle">{$link->menuTitle} <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					{include #menu, menuItems => $link->children}
+					</ul>
+				{else}
+					<a href="{plink Pages:view $link->id}">{$link->menuTitle}</a>
+				{/if}
+			</li>
+		{/foreach}
+{/block}
+</ul>

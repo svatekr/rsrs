@@ -1,0 +1,6 @@
+<div class="news row">
+	<h3>Novinky</h3>
+	<p n:foreach="$news as $new">
+		<a href="{plink News:view $new->id}">{$new->title}</a>
+	</p>
+</div>

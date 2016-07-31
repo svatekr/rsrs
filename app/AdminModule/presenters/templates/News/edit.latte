@@ -1,0 +1,74 @@
+{block content}
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {_'Editace novinky'}
+      </div>
+      <div class="panel-body">
+        {form editForm}
+          {input id}
+          <div class="tab-content">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <div class="col-lg-12 input-group">
+                  <span class="input-group-addon">
+                    <a href="javascript:void(0)" title="Titulek novinky" data-toggle="popover" data-trigger="focus" 
+                       data-content="Titulek novinky">
+                      <i class="fa fa-folder fa-fw"></i>
+                    </a>
+                  </span>
+                  {input title}
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="col-lg-12 input-group">
+                  <span class="input-group-addon">
+                    <a href="javascript:void(0)" title="URL adresa novinky" data-toggle="popover" 
+                       data-trigger="focus" data-content="Pokud je URL novinky prázdné, doplní se automaticky samo při uložení">
+                      <i class="fa fa-edge fa-fw"></i>
+                    </a>
+                  </span>
+                  {input url}
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <div class="col-lg-12 input-group margin-bottom-sm">
+                  <span class="input-group-addon">
+                    <a href="javascript:void(0)" title="Text novinky" data-toggle="popover" 
+                       data-trigger="focus" data-content="Text novinky">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                  </span>
+                  {input text}
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <input type="checkbox" n:name=active data-off-icon-cls="glyphicon-thumbs-down" data-on-icon-cls="glyphicon-thumbs-up" data-group-cls="btn-group-xs">
+                <label n:name=active> Aktivní</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              {input save}
+            </div>
+          </div>
+        </div>
+      {/form}
+    </div>
+  </div>
+</div>
+
+<script src="{$basePath}/ckeditor/ckeditor.js"></script>
+<script>
+  var editor = CKEDITOR.replace('frm-editForm-text');
+</script>
+
+{/block}
+
+{block title}{_'Editace novinky'} |&nbsp;{/block}

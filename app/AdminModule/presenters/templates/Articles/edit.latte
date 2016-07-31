@@ -1,0 +1,226 @@
+{block content}
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Editace článku
+				</div>
+				<div class="panel-body">
+					<ul class="nav nav-tabs" id="myTab">
+						<li class="active"><a data-toggle="tab" aria-expanded="true" href="#podrobnosti">Podrobnosti</a></li>
+						<li><a data-toggle="tab" href="#seo">SEO</a></li>
+					</ul>
+					{form editForm}
+						<div class="tab-content">
+							<div>&nbsp;</div>
+							<div id="podrobnosti" class="tab-pane active">
+								<div class="form-group">
+									<div class="col-sm-6">
+										<div class="col-lg-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Název stránky" data-toggle="popover"
+											   data-trigger="focus"
+											   data-content="Název stránky se použije v titulku stránky, pokud není vyplněn titulek na kartě SEO">
+												<i class="fa fa-bars fa-fw"></i>
+											</a>
+										</span>
+											{input name}
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="col-sm-12">
+											<input type="checkbox" n:name=active data-off-icon-cls="glyphicon-thumbs-down" data-on-icon-cls="glyphicon-thumbs-up" data-group-cls="btn-group-xs">
+											<label n:name=active> Aktivní</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">
+										<div class="col-lg-12 input-group">
+											<span class="input-group-addon">
+												<a href="javascript:void(0)" title="Téma" data-toggle="popover"
+												   data-trigger="focus"
+												   data-content="Téma">
+													<i class="glyphicon glyphicon-picture"></i>
+												</a>
+											</span>
+											{input idTheme}
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="col-lg-12 input-group">
+											<span class="input-group-addon">
+												<a href="javascript:void(0)" title="Nové téma" data-toggle="popover"
+												   data-trigger="focus"
+												   data-content="Nové téma">
+													<i class="glyphicon glyphicon-picture"></i>
+												</a>
+											</span>
+											{input theme}
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<div class="col-lg-12 input-group margin-bottom-sm">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Text stránky" data-toggle="popover"
+											   data-trigger="focus" data-content="Text stránky bude tvořit základní obsah zobrazené stránky">
+												<i class="glyphicon glyphicon-pencil"></i>
+											</a>
+										</span>
+											{input text}
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4">
+										<div class="col-lg-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Obrázek" data-toggle="popover"
+											   data-trigger="focus" data-content="Ke stránce může být přidružený obrázek, který se pak zobrazuje v šabloně.">
+												<i class="glyphicon glyphicon-picture"></i>
+											</a>
+										</span>
+											{input pictureName}
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="col-lg-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Popis obrázku" data-toggle="popover"
+											   data-trigger="focus" data-content="Pokud je ke stránce připojený obrázek, objeví se u něj tento popisek.">
+												<i class="glyphicon glyphicon-chevron-right"></i>
+											</a>
+										</span>
+											{input pictureDescription}
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4">
+										<div class="col-lg-12 input-group">
+											<span class="input-group-addon">
+												<a href="javascript:void(0)" title="Galerie" data-toggle="popover"
+												   data-trigger="focus"
+												   data-content="Ke stránce může být přidružena jedna či více galerií.">
+													<i class="glyphicon glyphicon-picture"></i>
+												</a>
+											</span>
+											{input galleryIds}
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div id="seo" class="tab-pane fade">
+								<div class="form-group">
+									<div class="col-lg-12">
+										<div class="col-lg-12 input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="URL adresa stránky" data-toggle="popover"
+											   data-trigger="focus" data-content="Pokud je URL stránky prázdné, doplní se automaticky samo při uložení">
+												<i class="fa fa-edge fa-fw"></i>
+											</a>
+										</span>
+											{input url}
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<div class="input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Titulek prohlížeče" data-toggle="popover" data-trigger="focus"
+											   data-content="Titulek se zobrazí na kartě prohlížeče. Pokud není vyplněn, použije se název stránky">
+												<i class="fa fa-folder fa-fw"></i>
+											</a>
+										</span>
+											{input title}
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<div class="input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Popisek stránky" data-toggle="popover"
+											   data-trigger="focus" data-content="Popisek by měl obsahovat hlavní námět stránky. Neměl by přesáhnout délku 150 - 160 znaků.">
+												<i class="fa fa-comment fa-fw"></i>
+											</a>
+										</span>
+											{input description}
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<div class="input-group">
+										<span class="input-group-addon">
+											<a href="javascript:void(0)" title="Klíčová slova" data-toggle="popover"
+											   data-trigger="focus" data-content="Vyhledávače pravděpodobně již nevěnují pozornost klíčovým slovům. Ale jejich uvedení není chyba.">
+												<i class="fa fa-hashtag fa-fw"></i>
+											</a>
+										</span>
+											{input keywords}
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-lg-12">
+									{input save} {input saveandstay}
+								</div>
+							</div>
+						</div>
+					{/form}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="{$basePath}/ckeditor/ckeditor.js"></script>
+	<script>
+		var editor = CKEDITOR.replace('frm-editForm-text', {
+			height: '400px'
+		});
+	</script>
+	<script type="text/javascript">
+
+		function openKCFinder(field) {
+			window.KCFinder = {
+				callBack: function (url) {
+					field.value = url;
+					window.KCFinder = null;
+				}
+			};
+			window.open({$basePath} + "/kcfinder/browse.php?type=images&dir=images", 'kcfinder_textbox',
+					'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+					'resizable=1, scrollbars=0, width=800, height=600'
+			);
+		}
+
+		jQuery(function ($) {
+			$('#myTab a').click(function (e) {
+				e.preventDefault();
+				$(this).tab('show');
+			});
+
+			$("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+				var id = $(e.target).attr("href").substr(1);
+				$.cookie('activeTab', id);
+			});
+
+			// on load of the page: switch to the currently selected tab
+			var hash = $.cookie('activeTab');
+			if (location.hash != '')
+				$('#myTab a[href="' + location.hash + '"]').tab('show')
+			else if (hash != null)
+				$('#myTab a[href="#' + hash + '"]').tab('show');
+		});
+	</script>
+
+{/block}
+
+{block title}Editace článku |&nbsp;{/block}

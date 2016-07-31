@@ -1,0 +1,40 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+services:
+	routerFactory: App\RouterFactory
+	router: @routerFactory::createRouter
+	database: Dibi\Connection(%database%, "mysqli")
+	database.panel: Dibi\Bridges\Tracy\Panel
+	cacheStorage:
+		class: Nette\Caching\Storages\DevNullStorage
+	nette.latteFactory:
+		setup:
+			- setTempDirectory(null)
+	tracy.bar:
+		setup:
+			- @database.panel::register(@database)
+
+extensions:
+	translation: Kdyby\Translation\DI\TranslationExtension
+	visualPaginator: IPub\VisualPaginator\DI\VisualPaginatorExtension
+
+translation:
+	default: cs
+	whitelist: [cs, en]
+	fallback: [cs_CZ, cs]
+	debugger: on

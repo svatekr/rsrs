@@ -1,0 +1,12 @@
+{block content}
+<h1>Novinky</h1>
+<div id="content">
+	{snippet news}
+	<div class="news" n:foreach="$news as $new">
+		<h2><a n:href="News:view $new->id">{$new->title}</a></h2>
+		<p>{$new->text|noescape|striptags}</p>
+		<p class="post-meta"><span class="glyphicon glyphicon-time"></span> {$new->dateAdd|date:"Y-m-d H:i:s"}</p>
+	</div>
+	{control visualPaginator}
+	{/snippet}
+</div>

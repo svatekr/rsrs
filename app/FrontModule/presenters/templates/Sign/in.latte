@@ -1,0 +1,66 @@
+{block content}
+	<div class="form-2" n:if="$flashes">
+		{snippet flash}
+			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} fade in">
+				{$flash->message}
+			</div>
+		{/snippet}
+	</div>
+
+	<section class="main">
+		<form n:name=signInForm class="form-2">
+			<h1><span class="log-in">{_messages.sign.in}</span> {_messages.other.or} <a n:href="Sign:up"><span
+							  class="sign-up">{_messages.sign.up}</span></a></h1>
+			<p class="float">
+				<label n:name=username><i class="fa fa-user"></i>{_messages.sign.username}</label>
+				<input type="text" tabindex="1" n:name=username placeholder="Login">
+				<label n:name=remember><input type="checkbox" tabindex="3" n:name=remember>{_messages.sign.keep}</label>
+			</p>
+			<p class="float">
+				<label n:name=password><i class="fa fa-lock"></i>{_messages.sign.password}</label>
+				<input type="password" tabindex="2" n:name=password placeholder="{_messages.sign.password}" class="showpassword">
+				<label for="showPassword"><input id="showPassword" tabindex="4" class="showpasswordcheckbox"
+															type="checkbox">{_messages.sign.show}</label>
+			</p>
+			<p class="clearfix">
+				<input type="submit" n:name=send>
+			</p>
+			<p>
+				<a n:href="remember" class="btn btn-link btn-sm" role="button"><i class="fa fa-mail-reply-all"></i> {_messages.sign.remember}</a>
+			</p>
+		</form>
+		​​
+	</section>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(".showpassword").each(function (index, input) {
+				var $input = $(input);
+				$("#showPassword").click(function () {
+					var change = $(this).is(":checked") ? "text" : "password";
+					var rep = $("<input placeholder='Heslo' type='" + change + "' />")
+							  .attr("id", $input.attr("id"))
+							  .attr("name", $input.attr("name"))
+							  .attr('class', $input.attr('class'))
+							  .val($input.val())
+							  .insertBefore($input);
+					$input.remove();
+					$input = rep;
+				})
+			});
+			$('#showPassword').click(function () {
+				if ($("#showPassword").is(":checked")) {
+					$('.icon-lock').addClass('icon-unlock');
+					$('.icon-unlock').removeClass('icon-lock');
+				} else {
+					$('.icon-unlock').addClass('icon-lock');
+					$('.icon-lock').removeClass('icon-unlock');
+				}
+			});
+		});
+	</script>
+{/block}
+
+{block title}
+	{_messages.sign.in}
+{/block}

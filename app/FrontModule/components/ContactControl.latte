@@ -1,0 +1,29 @@
+<form n:name="contactForm" class="form-horizontal" method="post" novalidate="">
+	<div class="control-group required" id="frm-contactForm-name-pair">
+		<label n:name="name" class="required control-label">Vaše jméno:</label>
+		<div class="controls">
+			<input n:name="name" type="text" class="form-control input-sm">
+		</div>
+	</div>
+	<div class="control-group" id="frm-contactForm-email-pair">
+		<label n:name="email" class="control-label">Vaše e-mailová adresa:</label>
+		<div class="controls">
+			<input n:name="email" class="form-control input-sm">
+		</div>
+	</div>
+	<div class="control-group required" id="frm-contactForm-subject-pair">
+		<label n:name="subject" class="required control-label">Předmět:</label>
+		<div class="controls">
+			<input n:name="subject" class="form-control input-sm">
+		</div>
+	</div>
+	<div class="control-group required" id="frm-contactForm-message-pair">
+		<label n:name="message" class="required control-label">Zpráva:</label>
+		<div class="controls">
+			<textarea n:name="message" class="form-control input-sm"></textarea>
+		</div>
+	</div>
+	<div class="form-actions">
+		<input n:name="process" class="btn btn-primary btn">
+	</div>
+</form>

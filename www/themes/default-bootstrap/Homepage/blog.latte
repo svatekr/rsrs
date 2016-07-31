@@ -1,0 +1,29 @@
+{block content}
+	{snippet blog}
+	<div class="contentArea">
+		<div class="divPanel notop page-content">
+			<div class="breadcrumbs"></div>
+			<div class="row-fluid">
+				<!--Edit Main Content Area here-->
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<div class="post-preview" n:foreach="$pages as $page" n:if="$page->url != '/'">
+						<a n:href="Pages:view $page->url">
+							<h2 class="post-title">
+								{$page->name|noescape|striptags}
+							</h2>
+							<p class="post-subtitle">
+								{if $page->perex > '' }{$page->perex|striptags|noescape|truncate:500}{else}{$page->text|striptags|noescape|truncate:500}{/if}
+							</p>
+						</a>
+						<p class="post-meta"><span class="glyphicon glyphicon-time"></span> Posted on {$page->up_date|date:"Y-m-d H:i:s"}</p>
+					</div>
+					<hr>
+				</div>
+				<!--End Main Content-->
+			</div>
+			{control visualPaginator}
+			<div id="footerInnerSeparator"></div>
+		</div>
+	</div>
+	{/snippet}
+{/block}

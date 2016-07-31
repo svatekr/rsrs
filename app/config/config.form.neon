@@ -1,0 +1,23 @@
+services:
+	- App\Forms\FormFactory
+	- App\Forms\SignInFormFactory
+	- App\Forms\SignUpFormFactory
+	- App\Forms\EditUserFormFactory
+	- App\Forms\AddUserFormFactory
+	- App\Forms\EditPageFormFactory
+	- App\Forms\AddPageFormFactory
+	- App\Forms\EditNewsFormFactory
+	- App\Forms\AddNewsFormFactory
+	- App\Forms\EditSettingsFormFactory
+	- App\Forms\EditGalleriesFormFactory
+	- App\Forms\AddGalleriesFormFactory
+	- App\Forms\EditPicturesFormFactory
+	- App\Forms\AddPicturesFormFactory
+	- App\Forms\SignRememberFormFactory
+	- App\Forms\SignNewPassFormFactory
+	- App\Forms\EditFooterFormFactory
+	- App\Forms\EditSliderFormFactory
+	- App\Forms\AddSliderFormFactory
+	- App\Forms\EditCommentFormFactory
+	- App\Forms\EditArticleFormFactory
+	- App\Forms\AddArticleFormFactory

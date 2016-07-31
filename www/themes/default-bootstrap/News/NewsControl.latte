@@ -1,0 +1,9 @@
+<div class="news row">
+	<h3>{_ messages.news.news}</h3>
+		<ul n:inner-foreach="$news as $new">
+			<li>
+				<span class="title"><a href="{plink News:view $new->url}">{$new->title}</a></span>
+				{$new->text|noescape|truncate:200}
+			</li>
+		</ul>
+</div>
